@@ -15,7 +15,7 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="start_btn" Content="开始" HorizontalAlignment="Left" Height="44" Margin="20,134,0,0" VerticalAlignment="Top" Width="161" Click="start_btn_Click"/>
         <TextBox x:Name="path_tb" HorizontalAlignment="Left" Height="27" Margin="122,102,0,0" TextWrapping="Wrap" Text="D:\testss" VerticalAlignment="Top" Width="227"/>
-        <TextBox x:Name="interval_tb" HorizontalAlignment="Center" Height="27" Margin="0,70,0,0" TextWrapping="Wrap" Text="15" VerticalAlignment="Top" Width="82"/>
+        <TextBox x:Name="interval_tb" HorizontalAlignment="Left" Height="27" Margin="242,70,0,0" TextWrapping="Wrap" Text="15" VerticalAlignment="Top" Width="82"/>
         <Label Content="秒" HorizontalAlignment="Left" Height="27" Margin="319,70,0,0" VerticalAlignment="Top" Width="30" HorizontalContentAlignment="Right"/>
         <Button x:Name="end_btn" Content="停止" HorizontalAlignment="Left" Height="44" Margin="186,134,0,0" VerticalAlignment="Top" Width="163" Click="end_btn_Click"/>
         <Label Content="已截图张数：" HorizontalAlignment="Left" Height="25" Margin="196,192,0,0" VerticalAlignment="Top" Width="79"/>
