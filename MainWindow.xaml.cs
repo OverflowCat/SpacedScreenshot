@@ -46,17 +46,18 @@ namespace SpacedScreenshot
 
             // Save the screenshot to the specified path that the user has chosen.
             string folderPath = path_tb.Text;
-            if (!folderPath.EndsWith("\\"))
-            {
-                folderPath += "\\";
-            }
+            if (!folderPath.EndsWith("\\")) folderPath += "\\";
+
+            // If the folder does not exist, create it
+            if (!System.IO.Directory.Exists(folderPath))
+                System.IO.Directory.CreateDirectory(folderPath);
 
             bmpScreenshot.Save($"{folderPath}{filenamePrefix}-{count}-{DateTime.Now:yyyyMMdd-hhmmss}.png", System.Drawing.Imaging.ImageFormat.Png);
             count++;
             counter_label.Content = count.ToString();
         }
 
-        private void start_btn_Click(object sender, RoutedEventArgs e)
+        private void Start_btn_Click(object sender, RoutedEventArgs e)
         {
             // 获取文本框中的时间间隔值
             int interval;
@@ -78,7 +79,7 @@ namespace SpacedScreenshot
             }
         }
 
-        private void end_btn_Click(object sender, RoutedEventArgs e)
+        private void End_btn_Click(object sender, RoutedEventArgs e)
         {
             timer.Stop();
             end_btn.IsEnabled = false;
