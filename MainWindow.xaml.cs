@@ -14,6 +14,9 @@ namespace SpacedScreenshot
         public int count = 0;
         public DispatcherTimer timer = new DispatcherTimer();
         private string filenamePrefix;
+        private Bitmap bmpScreenshot;
+        private Graphics gfxScreenshot;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -29,12 +32,12 @@ namespace SpacedScreenshot
             */
 
             //Create a new bitmap.
-            Bitmap bmpScreenshot = new Bitmap(Screen.PrimaryScreen.Bounds.Width,
+            bmpScreenshot = new Bitmap(Screen.PrimaryScreen.Bounds.Width,
                                            Screen.PrimaryScreen.Bounds.Height
                                            );
 
             // Create a graphics object from the bitmap.
-            Graphics gfxScreenshot = Graphics.FromImage(bmpScreenshot);
+            gfxScreenshot = Graphics.FromImage(bmpScreenshot);
 
             // Take the screenshot from the upper left corner to the right bottom corner.
             gfxScreenshot.CopyFromScreen(Screen.PrimaryScreen.Bounds.X,
@@ -55,6 +58,8 @@ namespace SpacedScreenshot
             bmpScreenshot.Save($"{folderPath}{filenamePrefix}-{count}-{DateTime.Now:yyyyMMdd-hhmmss}.png", System.Drawing.Imaging.ImageFormat.Png);
             count++;
             counter_label.Content = count.ToString();
+            bmpScreenshot.Dispose();
+            gfxScreenshot.Dispose();
         }
 
         private void Start_btn_Click(object sender, RoutedEventArgs e)
